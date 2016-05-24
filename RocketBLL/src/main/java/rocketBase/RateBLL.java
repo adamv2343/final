@@ -2,11 +2,13 @@ package rocketBase;
 
 import org.apache.poi.ss.formula.functions.*;
 
+import exceptions.RateException;
+
 public class RateBLL {
 
 	private static RateDAL _RateDAL = new RateDAL();
 	
-	static double getRate(int GivenCreditScore) 
+	static double getRate(int GivenCreditScore) throws RateException 
 	{
 		//TODO - RocketBLL RateBLL.getRate - make sure you throw any exception
 		
@@ -19,7 +21,30 @@ public class RateBLL {
 		
 		//TODO - RocketBLL RateBLL.getRate
 		//			obviously this should be changed to return the determined rate
+		if (GivenCreditScore >= 760 && GivenCreditScore <= 850){
+			return 3.286;
+		}
+		else if (GivenCreditScore >= 700 && GivenCreditScore <= 759){
+			return 3.508;
+		}
+		else if (GivenCreditScore >= 680 && GivenCreditScore <= 699){
+			return 3.685;
+		}
+		else if (GivenCreditScore >= 660 && GivenCreditScore <= 679){
+			return 3.899;
+		}
+		else if (GivenCreditScore >= 640 && GivenCreditScore <= 659){
+			return 4.329;
+		}
+		else if (GivenCreditScore >= 620 && GivenCreditScore <= 639){
+			return 4.875;
+		}
+		else if (GivenCreditScore >= 850 && GivenCreditScore <= 620){
+			throw new RateException();
+		}
+		
 		return 0;
+		
 		
 		
 	}
