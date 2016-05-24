@@ -39,7 +39,7 @@ public class RateBLL {
 		else if (GivenCreditScore >= 620 && GivenCreditScore <= 639){
 			return 4.875;
 		}
-		else if (GivenCreditScore >= 850 && GivenCreditScore <= 620){
+		else if (GivenCreditScore > 850 && GivenCreditScore < 620){
 			throw new RateException();
 		}
 		
